@@ -1,9 +1,14 @@
-<h1>Comments</h1>
+<div class='col-sm-6'>
+	<h4 class='pull-left'>Comments</h4>
+	<a href='/#/new' class='btn btn-info pull-right'>Add New Comment</a>
+</div>
 
-<div ng-repeat='comment in comments'>
-	<ul class='list-group'>
-		<li class="list-group-item"><span>Name : </span>{{comment.name}}</li>
-		<li class="list-group-item"><span>Comment : </span>{{comment.comment}}</li>
-		<li class="list-group-item"><span>Time : </span>{{comment.time}}</li>
-	</ul>
+<div class='clearfix'></div>
+
+<div class='col-sm-6'>
+	<div ng-repeat='comment in comments' class='form-group panel panel-default'>
+		<div class='panel-heading'>{{comment.name}}</div>
+		<div class='panel-body'>{{comment.comment}}</div>
+		<div class='panel-footer'>{{comment.time}}</div>
+	</div>
 </div>
