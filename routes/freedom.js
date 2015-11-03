@@ -12,4 +12,47 @@ router.get('/', function(req, res){
 	});
 });
 
+router.post('/', function(req, res){
+	var collection = db.get('comments');
+	var comment = {
+		name: req.body.name,
+		comment: req.body.comment,
+		time: req.body.time
+	};
+	collection.insert(comment, function(err, comment){
+		if(err) throw err;
+		res.json(comment);
+	});
+});
+
+router.get('/:id', function(req, res){
+	var collection = db.get('comments');
+	collection.findOne({_id: req.params.id}, function(err, comment){
+		if(err) throw err;
+		res.json(comment);
+	});
+});
+
+router.put('/:id', function(req, res){
+	var collection = db.get('comments');
+	collection.update({
+		_id: req.params.id
+	},{
+		name: req.body.name,
+		comment: req.body.comment,
+		time: req.body.time
+	},function(err, comment){
+		if(err) throw err;
+		res.json(comment);
+	});
+});
+
+router.delete('/:id', function(req, res){
+	var collection = db.get('comments');
+	collection.remove({ _id: req.params.id }, function(err, comment){
+		if(err) throw err;
+		res.json(comment);
+	});
+});
+
 module.exports = router;

@@ -9,6 +9,10 @@
 	<div ng-repeat='comment in comments' class='form-group panel panel-default'>
 		<div class='panel-heading'>{{comment.name}}</div>
 		<div class='panel-body'>{{comment.comment}}</div>
-		<div class='panel-footer'>{{comment.time}}</div>
+		<div class='panel-footer'>
+			{{comment.time}}
+			<a href='javascript:void(0);' class='pull-right mg-left20' ng-click="deleteComment(comment._id)">Delete</a>
+			<a href='/#/edit/{{comment._id}}' class='pull-right'>Edit</a>
+		</div>
 	</div>
 </div>
