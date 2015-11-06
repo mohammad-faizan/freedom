@@ -3,8 +3,10 @@ var app = angular.module('Freedom', ['ngResource', 'ngRoute']);
 var config = ['$routeProvider', function($routeProvider){
 	$routeProvider
 		.when('/', {
-			templateUrl: 'partials/comment-list.html',
-			controller: 'CommentCtrl'
+			// templateUrl: 'partials/comment-list.html',
+			// controller: 'CommentCtrl'
+			templateUrl: 'partials/user-form.html',
+			controller: 'UserCtrl'
 		})
 		.when('/new', {
 			templateUrl: 'partials/comment-form.html',
@@ -66,3 +68,12 @@ app.controller('EditCommentCtrl',
 		}
 	]
 );
+
+app.controller('UserCtrl', ['$scope', '$resource', '$location', function($scope, $resource, $location){
+	var api = $resource('/users');
+	$scope.saveUser = function(){
+		api.save($scope.user, function(user){
+			$location.path('/');
+		});
+	}
+}]);

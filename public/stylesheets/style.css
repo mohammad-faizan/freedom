@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 40px 0 40px 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -9,4 +9,9 @@ a {
 
 .mg-left20{
 	margin-left: 20px;
+}
+
+.header{
+	padding-left: 30px !important;
+	margin-bottom: 20px !important;
 }

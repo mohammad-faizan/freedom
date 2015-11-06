@@ -3,9 +3,10 @@ var router			= express.Router();
 
 var monk 				= require('monk');
 var db 					= monk('localhost:27017/freedom');
+var db = require('../lib/database_connector');
 
 router.get('/', function(req, res){
-	var collection = db.get('comments');
+	var collection = db.Comment;
 	collection.find({}, function(err, comments){
 		if(err) throw err;
 		res.json(comments);
@@ -13,7 +14,7 @@ router.get('/', function(req, res){
 });
 
 router.post('/', function(req, res){
-	var collection = db.get('comments');
+	var collection = db.Comment;
 	var comment = {
 		name: req.body.name,
 		comment: req.body.comment,
@@ -26,7 +27,7 @@ router.post('/', function(req, res){
 });
 
 router.get('/:id', function(req, res){
-	var collection = db.get('comments');
+	var collection = db.Comment;
 	collection.findOne({_id: req.params.id}, function(err, comment){
 		if(err) throw err;
 		res.json(comment);
@@ -34,7 +35,7 @@ router.get('/:id', function(req, res){
 });
 
 router.put('/:id', function(req, res){
-	var collection = db.get('comments');
+	var collection = db.Comment;
 	collection.update({
 		_id: req.params.id
 	},{
@@ -48,7 +49,7 @@ router.put('/:id', function(req, res){
 });
 
 router.delete('/:id', function(req, res){
-	var collection = db.get('comments');
+	var collection = db.Comment;
 	collection.remove({ _id: req.params.id }, function(err, comment){
 		if(err) throw err;
 		res.json(comment);
