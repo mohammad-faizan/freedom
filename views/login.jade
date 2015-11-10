@@ -1,40 +1,43 @@
-form(class='form-horizontal')
-	.form-group
-		label(
-			for='email'
-			class='col-sm-2 control-label'
-		) Email
+extends layout
 
-		.col-sm-10
-			input(
-				type='email'
-				class='form-control'
-				name='email'
-				placeholder='Email'
+block content
+	form(class='form-horizontal col-sm-6')
+		.form-group
+			label(
+				for='email'
+				class='col-sm-2 control-label'
+			) Email
+
+			.col-sm-10
+				input(
+					type='email'
+					class='form-control'
+					name='email'
+					placeholder='Email'
+				)
+
+		.form-group
+			label(
+				for='password'
+				class='col-sm-2 control-label'
+			) Password
+
+			.col-sm-10
+				input(
+					type='password'
+					class='form-control'
+					name='password'
+					placeholder='Password'
+				)
+
+		.form-group
+			label(
+				for=''
+				class='col-sm-2 control-label'
 			)
 
-	.form-group
-		label(
-			for='password'
-			class='col-sm-2 control-label'
-		) Password
-
-		.col-sm-10
-			input(
-				type='password'
-				class='form-control'
-				name='password'
-				placeholder='Password'
-			)
-
-	.form-group
-		label(
-			for=''
-			class='col-sm-2 control-label'
-		)
-
-		.col-sm-10
-			input(
-				type='submit'
-				class='btn btn-primary'
-			)
+			.col-sm-10
+				input(
+					type='submit'
+					class='btn btn-primary'
+				)

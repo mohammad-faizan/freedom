@@ -5,8 +5,8 @@ var config = ['$routeProvider', function($routeProvider){
 		.when('/', {
 			// templateUrl: 'partials/comment-list.html',
 			// controller: 'CommentCtrl'
-			templateUrl: 'partials/user-form.html',
-			controller: 'UserCtrl'
+			// templateUrl: 'partials/user-form.html',
+			// controller: 'UserCtrl'
 		})
 		.when('/new', {
 			templateUrl: 'partials/comment-form.html',
